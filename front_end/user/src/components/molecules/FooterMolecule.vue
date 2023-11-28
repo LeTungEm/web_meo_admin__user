@@ -19,9 +19,26 @@
         <div class="text-xl font-bold uppercase">Chính sách mua bán</div>
         <hr class="w-[5vw] border-b-4 my-5" />
         <ul class="text-lg">
-          <li>Chế độ bảo hành.</li>
-          <li>Chính sách mua mèo.</li>
-          <li>Lưu ý khi mèo về nhà mới.</li>
+          <li>
+            <router-link to="/chinh-sach/ve-chung-toi">
+              Về chúng tôi
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/chinh-sach/spa-hotel">
+              Dịch vụ Spa&Hotel
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/chinh-sach/bao-hanh-va-tra-gop">
+              Chính sách bảo hành & trả góp 0%
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/chinh-sach/kinh-nghiem-cham-soc">
+              Kinh nghiệp chăm sóc
+            </router-link>
+          </li>
         </ul>
       </div>
     </div>

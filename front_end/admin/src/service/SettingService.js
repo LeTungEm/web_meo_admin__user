@@ -47,6 +47,12 @@ class SettingService {
         formData.append('experience', experience);
         return axios.post(`${PRODUCT_API_URL}`, formData);
     }
+    updateMating(mating) {
+        let formData = new FormData();
+        formData.append('action', 'updateMating');
+        formData.append('mating', mating);
+        return axios.post(`${PRODUCT_API_URL}`, formData);
+    }
 
 }
 

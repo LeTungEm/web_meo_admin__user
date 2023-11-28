@@ -44,6 +44,9 @@ export default {
           case "kinh-nghiem-cham-soc":
             this.policyData = res.data.experience;
             break;
+          case "phoi-meo":
+            this.policyData = res.data.mating;
+            break;
           default:
             break;
         }

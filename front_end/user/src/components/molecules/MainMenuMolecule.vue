@@ -91,7 +91,7 @@
       :onclick="closeMenu"
       class="py-1 ml-5 border-b xl:border-0 group text-white capitalize"
     >
-      <router-link class="block" to="/meo-canh">
+      <router-link class="block" to="/chinh-sach/phoi-meo">
         <font-awesome-icon
           class="group-hover:animate-bounce duration-1000"
           :icon="['fas', 'shield-cat']"

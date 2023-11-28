@@ -91,6 +91,7 @@ export default {
         console.log(res.data);
         if (res.data.message == true) {
           this.setUserLoginStatus(true);
+          localStorage.setItem("URT", "asdwvhwksksj");
           this.$router.push("/quan-ly/quan-ly-meo");
         }
       });
@@ -102,6 +103,13 @@ export default {
         this.showNotification(["Vui lòng điền đủ thông tin !!!", true]);
       }
     },
+  },
+  created() {
+    let token = localStorage.getItem("URT");
+    if (token == "asdwvhwksksj") {
+      this.setUserLoginStatus(true);
+      this.$router.push("/quan-ly/quan-ly-meo");
+    }
   },
 };
 </script>

@@ -44,6 +44,10 @@ switch ($action) {
         $experience = $_POST["experience"];
         $message = $setting->updateExperience($experience);
         break;
+    case "updateMating":
+        $mating = $_POST["mating"];
+        $message = $setting->updateMating($mating);
+        break;
     default:
         $message = "action is not found";
         break;

@@ -43,5 +43,10 @@ class Setting extends Db
         $sql = "UPDATE `setting` SET `experience`= ?";
         return $this->update($sql, array($experience));
     }
+    public function updateMating($mating)
+    {
+        $sql = "UPDATE `setting` SET `mating`= ?";
+        return $this->update($sql, array($mating));
+    }
 }
 ?>

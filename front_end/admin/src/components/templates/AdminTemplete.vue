@@ -19,6 +19,7 @@
 <script>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import AdminNavBarOrganism from "@/components/organisms/AdminNavBarOrganism.vue";
+import { scrollToTop } from "@/assets/js/quickFunction";
 
 export default {
   name: "AdminTemplete",
@@ -30,6 +31,7 @@ export default {
   methods: {
     changeNavBarStatus() {
       this.navBarStatus = !this.navBarStatus;
+      scrollToTop();
     },
   },
   components: { FontAwesomeIcon, AdminNavBarOrganism },

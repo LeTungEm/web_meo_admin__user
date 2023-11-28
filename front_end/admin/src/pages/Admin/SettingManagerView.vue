@@ -4,25 +4,29 @@
       <div class="text-xl border-b-2 border-black pb-2 mb-5">
         Giới thiệu (Về chúng tôi)
       </div>
-      <about-editor-molecule :aboutData="about"/>
+      <about-editor-molecule :aboutData="about" />
     </div>
     <div>
       <div class="text-xl border-b-2 border-black pb-2 mb-5">
         Dịch vụ spa và hotel
       </div>
-      <ServiceEditorMolecule :service-data="service"/>
+      <ServiceEditorMolecule :service-data="service" />
     </div>
     <div>
       <div class="text-xl border-b-2 border-black pb-2 mb-5">
         Chính sách bảo hành và trả góp 0%
       </div>
-      <policy-editor-molecule :policy-data="policy"/>
+      <policy-editor-molecule :policy-data="policy" />
     </div>
     <div>
       <div class="text-xl border-b-2 border-black pb-2 mb-5">
         Kinh nghiệm chăm sóc mèo
       </div>
-      <experience-editor-molecule :experience-data="experience"/>
+      <experience-editor-molecule :experience-data="experience" />
+    </div>
+    <div>
+      <div class="text-xl border-b-2 border-black pb-2 mb-5">Phối mèo</div>
+      <mating-molecule :matingData="mating" />
     </div>
     <!-- customer response -->
     <div class="mt-5">
@@ -41,8 +45,8 @@
           hidden
           id="clientFile"
           accept="image/*"
-          type="file"
           multiple
+          type="file"
         />
         <div class="flex gap-5 flex-wrap" v-if="listImageUrl.length > 0">
           <div
@@ -136,10 +140,11 @@ import CropImageMolecule from "@/components/molecules/CropImageMolecule.vue";
 import CatService from "@/service/CatService";
 import SettingService from "@/service/SettingService";
 import UploadFile from "@/service/UploadFile";
-import AboutEditorMolecule from '../../components/molecules/AboutEditorMolecule.vue';
+import AboutEditorMolecule from "../../components/molecules/AboutEditorMolecule.vue";
 import ServiceEditorMolecule from "@/components/molecules/ServiceEditorMolecule.vue";
-import PolicyEditorMolecule from '../../components/molecules/PolicyEditorMolecule.vue';
-import ExperienceEditorMolecule from '../../components/molecules/ExperienceEditorMolecule.vue';
+import PolicyEditorMolecule from "../../components/molecules/PolicyEditorMolecule.vue";
+import ExperienceEditorMolecule from "../../components/molecules/ExperienceEditorMolecule.vue";
+import MatingMolecule from "../../components/molecules/MatingMolecule.vue";
 
 export default {
   name: "SettingManagerView",
@@ -156,10 +161,11 @@ export default {
       cropImageBannerStatus: false,
       doman: DOMAN,
       newImage: null,
-      about: '',
-      service: '',
-      policy: '',
-      experience: '',
+      about: "",
+      service: "",
+      policy: "",
+      experience: "",
+      mating: "",
     };
   },
   methods: {
@@ -175,7 +181,9 @@ export default {
       for (let index = 0; index < listFile.length; index++) {
         const element = listFile[index];
         this.listImageUrl.push(URL.createObjectURL(element));
-        this.listImageName.push(this.formatName("client_responses/", element.name));
+        this.listImageName.push(
+          this.formatName("client_responses/", element.name)
+        );
       }
     },
     formatName(folder, string) {
@@ -215,10 +223,9 @@ export default {
       });
     },
     saveImage(imageBlob, imageName) {
-      UploadFile.uploadImage(imageBlob, imageName)
-        .then((res) => {
-          console.log(res.data);
-        });
+      UploadFile.uploadImage(imageBlob, imageName).then((res) => {
+        console.log(res.data);
+      });
     },
     saveData() {
       let newArr = [...this.listImageName, ...this.listOldImage];
@@ -235,11 +242,19 @@ export default {
           this.policy = res.data.policy;
           this.service = res.data.service;
           this.experience = res.data.experience;
+          this.mating = res.data.mating;
         }
       });
     },
   },
-  components: { CropImageMolecule, AboutEditorMolecule, ServiceEditorMolecule, PolicyEditorMolecule, ExperienceEditorMolecule },
+  components: {
+    CropImageMolecule,
+    AboutEditorMolecule,
+    ServiceEditorMolecule,
+    PolicyEditorMolecule,
+    ExperienceEditorMolecule,
+    MatingMolecule,
+  },
   created() {
     this.getSetting();
   },
