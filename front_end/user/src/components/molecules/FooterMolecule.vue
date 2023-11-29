@@ -18,7 +18,7 @@
       <div>
         <div class="text-xl font-bold uppercase">Chính sách mua bán</div>
         <hr class="w-[5vw] border-b-4 my-5" />
-        <ul class="text-lg">
+        <ul class="text-lg underline italic">
           <li>
             <router-link to="/chinh-sach/ve-chung-toi">
               Về chúng tôi

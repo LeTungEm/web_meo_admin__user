@@ -7,7 +7,7 @@
     <div class="mr-5 md:col-span-2 md:mr-10 xl:hidden h-full flex items-center">
       <font-awesome-icon
         :onclick="changeMainMenuStatus"
-        class="cursor-pointer text-white text-2xl"
+        class="cursor-pointer text-black text-2xl"
         :icon="['fas', 'bars']"
       />
     </div>
